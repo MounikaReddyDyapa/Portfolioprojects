@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Mortgage Calculator</title>
+</head>
+
+<body>
+  <h1>Mortgage Calculator</h1>
+
+  <div class="form-container">
+    <div class="form-group">
+      <label for="propertyValue">Property Value:</label>
+      <input type="number" id="propertyValue" placeholder="Enter property value" required>
+    </div>
+
+    <div class="form-group">
+      <label for="downPayment">Down Payment (%):</label>
+      <input type="number" id="downPayment" placeholder="Enter down payment percentage" required>
+    </div>
+
+    <div class="form-group">
+      <label for="loanAmount">Loan Amount:</label>
+      <input type="number" id="loanAmount" placeholder="Enter loan amount" required>
+    </div>
+
+    <div class="form-group">
+      <label for="interestRate">Interest Rate:</label>
+      <input type="number" id="interestRate" placeholder="Enter interest rate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="loanTerm">Loan Term (years):</label>
+      <input type="number" id="loanTerm" placeholder="Enter loan term" required>
+    </div>
+
+    <div class="form-group">
+      <label for="state">Tax:</label>
+      <select id="state" onchange="handleStateChange()" required>
+        <option value="">Select</option>
+        <option value="0.50">0.50% (0.005)</option>
+        <option value="1.00">1.00% (0.010)</option>
+        <option value="1.50">1.50% (0.015)</option>
+        <option value="2.00">2.00% (0.020)</option>
+        <option value="custom">Custom</option>
+      </select>
+    </div>
+
+    <div id="customTax" style="display: none;" class="form-group">
+      <label for="customTaxRate">Custom Tax Rate:</label>
+      <input type="number" id="customTaxRate" placeholder="Enter custom tax rate">
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+    <button id="clearButton">Clear</button>
+  </div>
+
+  <div class="result-container" id="result">
+    <h2></h2>
+    <div class="result-group">
+      <label class="result-label">Monthly Principal:</label>
+      <span id="monthlyPayment"></span>
+    </div>
+    <div class="result-group">
+      <label class="result-label">Property Tax:</label>
+      <span id="propertyTaxAmount"></span>
+    </div>
+    <div class="result-group">
+      <label class="result-label">Total:</label>
+      <span id="totalAmount"></span>
+    </div>
+	<div class="result-group">
+    <label class="result-label">Down Payment:</label>
+    <span id="downPaymentAmount"></span>
+  </div>
+  <div class="result-group">
+    <label class="result-label">Total Interest:</label>
+    <span id="totalInterestPaid"></span>
+  </div>
+  </div>
+
+  <script src="PrimaryCalculation.js"></script>
+</body>
+
+</html>
